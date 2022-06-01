@@ -1,0 +1,31 @@
+Package: Rtfordfunds
+Title: Functions for data science at Hartford Funds
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Jordan",
+           family = "Upton",
+           role = c("aut", "cre"),
+           email = "jordan.upton@hartfordfunds.com")
+Description: Over the years, we've developed functions that are useful across 
+    multiple projects.  This package is merely a convenience wrapper for 
+    loading all of those functions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Depends: R (>= 2.10)
+Imports: 
+    grid,
+    gridExtra,
+    odbc,
+    ggthemes,
+    ggplot2,
+    magrittr,
+    dplyr,
+    data.table,
+    dtplyr,
+    tibble,
+    rlang,
+    tidyr
+Suggests: 
+    testthat
