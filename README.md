@@ -1,4 +1,4 @@
 # Rtfordfunds
 Functions for use at Hartford Funds
 
-devtools::install.packages("jordanRupton/Rtfordfunds@main")
+devtools::install_github("jordanRupton/Rtfordfunds@main")
