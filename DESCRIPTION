@@ -1,6 +1,6 @@
 Package: Rtfordfunds
 Title: Functions for data science at Hartford Funds
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
     person(given = "Jordan",
            family = "Upton",
