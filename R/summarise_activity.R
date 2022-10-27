@@ -77,10 +77,9 @@ summarise_activity <- function(df,
       dplyr::summarise(value = sum(value)) %>%
       dplyr::ungroup()
   }else{
-    count_distinct <- rlang::enquo(count_distinct)
     df <- df %>%
       dplyr::summarise(value = sum(value),
-                count_distinct = dplyr::n_distinct(!!count_distinct)) %>%
+                count_distinct = dplyr::n_distinct(!!rlang::sym(count_distinct))) %>%
       dplyr::ungroup()
   }
 
