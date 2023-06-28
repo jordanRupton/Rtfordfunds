@@ -4,14 +4,21 @@
 \alias{summarise_activity}
 \title{Summarise tables at various possible levels}
 \usage{
-summarise_activity(df, id_map = id_map, at_level = c("person", "pe"),
-  using_level = c("person", "pe"), group_vars = c("date", "metric"),
-  count_distinct = NULL)
+summarise_activity(
+  df,
+  id_map = id_map,
+  at_level = c("person", "pe"),
+  using_level = c("person", "pe"),
+  group_vars = c("date", "metric"),
+  count_distinct = NULL,
+  person_primary_key = "dim_pers_id",
+  pe_primary_key = "prod_entty_dim_pers_id"
+)
 }
 \arguments{
 \item{df}{The data frame with some value to be summarised}
 
-\item{id_map}{A two-column data frame mapping dim_pers_id to dim_prod_entty_id}
+\item{id_map}{A two-column data frame mapping person & PE primary keys}
 
 \item{at_level}{What level do we want the final results at?}
 
@@ -20,6 +27,10 @@ summarise_activity(df, id_map = id_map, at_level = c("person", "pe"),
 \item{group_vars}{Other than person/pe, what other grouping variables do we need?}
 
 \item{count_distinct}{Do we also want to count the distinct values of something?}
+
+\item{person_primary_key}{What is the column name of the primary key for a person?}
+
+\item{pe_primary_key}{What is the column name of the primary key for a PE?}
 }
 \value{
 A data frame at the at-level & group_vars level, with the sum of a value (and maybe distinct count of some attribute)
@@ -53,6 +64,7 @@ pivot_longer(cols = c(grosssales, redemptions),
   filter(value > 0) \%>\%
   summarise_activity(id_map = id_map,
                      at_level = "person",
-                     using_level = "pe")
+                     using_level = "pe",
+                     pe_primary_key = "dim_prod_entty_id")
 }
 }
